@@ -6,8 +6,7 @@
 //
 
 #import "FaceMeshingOCViewController.h"
-#import "FaceMeshing.framework/Headers/IrisFaceMeshingHelper.h"
-
+#import "MediaPipe.framework/Headers/IrisFaceMeshingHelper.h"
 
 @interface FaceMeshingOCViewController () <IrisFaceMeshingHelperDelegate>
 

@@ -49,6 +49,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param eyeRect NormalizedRectModel
 - (void)didReceiveRightEyeRect:(nullable NormalizedRectModel *)eyeRect;
 
+/// 人脸检测的分数 0-100 不是一直返回，当需要检测的时候才会返回分数（建议调试使用）
+/// @param score float
+- (void)didReceiveFeceDecetionScore:(nullable NSNumber *)score;
+
 /// 相机采集到的数据
 /// @param pixelBuffer CVPixelBufferRef
 - (void)cameraFrameWithPixelBuffer:(nullable CVPixelBufferRef)pixelBuffer;

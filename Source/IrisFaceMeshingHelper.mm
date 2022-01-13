@@ -23,10 +23,11 @@ static const char *kInputStream = "input_video";
 static const char *kOutputStream = "output_video";
 
 static const char *kIrisLandmarksOutputStream = "iris_landmarks";
-static const char* kFaceLandmarksOutputStream = "face_landmarks";
-static const char* kFaceRectsOutputStream = "face_rects_from_landmarks";
-static const char* KLeftEyeOutputStream = "left_eye_rect_from_landmarks";
-static const char* KRightEyeOutputStream = "right_eye_rect_from_landmarks";
+static const char *kFaceLandmarksOutputStream = "face_landmarks";
+static const char *kFaceRectsOutputStream = "face_rects_from_landmarks";
+static const char *KLeftEyeOutputStream = "left_eye_rect_from_landmarks";
+static const char *KRightEyeOutputStream = "right_eye_rect_from_landmarks";
+static const char *KFaceDetectionStream = "face_detections";
 
 @interface IrisFaceMeshingHelper () <MPPGraphDelegate, MPPInputSourceDelegate>
 
@@ -83,6 +84,8 @@ static const char* KRightEyeOutputStream = "right_eye_rect_from_landmarks";
         [self.mediapipeGraph addFrameOutputStream:KLeftEyeOutputStream
                                  outputPacketType:MPPPacketTypeRaw];
         [self.mediapipeGraph addFrameOutputStream:KRightEyeOutputStream
+                                 outputPacketType:MPPPacketTypeRaw];
+        [self.mediapipeGraph addFrameOutputStream:KFaceDetectionStream
                                  outputPacketType:MPPPacketTypeRaw];
         _focal_length_side_packet = mediapipe::MakePacket<std::unique_ptr<float>>(absl::make_unique<float>(0.0));
         _input_side_packets = {
@@ -224,7 +227,6 @@ static const char* KRightEyeOutputStream = "right_eye_rect_from_landmarks";
 - (void)mediapipeGraph:(MPPGraph *)graph
        didOutputPacket:(const ::mediapipe::Packet&)packet
             fromStream:(const std::string&)streamName {
-    
     if (packet.IsEmpty()) {
         return;
     }
@@ -262,6 +264,13 @@ static const char* KRightEyeOutputStream = "right_eye_rect_from_landmarks";
             return;
         }
         [self.delegate didReceiveRightEyeRect:[self mapNormalizedRecWithPacket:packet isList:NO]];
+    }
+    
+    if (streamName == KFaceDetectionStream) {
+        if (![self.delegate respondsToSelector:@selector(didReceiveFeceDecetionScore:)]) {
+            return;
+        }
+        [self.delegate didReceiveFeceDecetionScore:[self mapScoreWithPacket:packet]];
     }
 }
 
@@ -341,6 +350,15 @@ static const char* KRightEyeOutputStream = "right_eye_rect_from_landmarks";
     rect.width = width;
     rect.rotation = rotation;
     return rect;
+}
+
+- (NSNumber *)mapScoreWithPacket:(const ::mediapipe::Packet&)packet {
+    const auto& decetions = packet.Get<std::vector<mediapipe::Detection>>();
+    for (int i = 0; i < decetions.size(); i++) {
+        float scroe = decetions[i].score(0);
+        return [[NSNumber alloc] initWithFloat:scroe];
+    }
+    return NULL;
 }
 
 @end

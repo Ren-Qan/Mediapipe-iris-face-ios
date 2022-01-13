@@ -14,8 +14,8 @@
 		C7E61915278EC67C0064C8C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7E61913278EC67B0064C8C9 /* LaunchScreen.storyboard */; };
 		C7E6191D278EC74C0064C8C9 /* FaceMeshingSwiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E6191C278EC74C0064C8C9 /* FaceMeshingSwiftViewController.swift */; };
 		C7E61921278EC75F0064C8C9 /* FaceMeshingOCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E61920278EC75F0064C8C9 /* FaceMeshingOCViewController.m */; };
-		C7E61928278EC8040064C8C9 /* FaceMeshing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E61927278EC8040064C8C9 /* FaceMeshing.framework */; platformFilter = ios; };
-		C7E61929278EC8040064C8C9 /* FaceMeshing.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7E61927278EC8040064C8C9 /* FaceMeshing.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C7F30101279014BB00317B01 /* MediaPipe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7F30100279014BB00317B01 /* MediaPipe.framework */; platformFilter = ios; };
+		C7F30102279014BB00317B01 /* MediaPipe.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C7F30100279014BB00317B01 /* MediaPipe.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,7 +25,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C7E61929278EC8040064C8C9 /* FaceMeshing.framework in Embed Frameworks */,
+				C7F30102279014BB00317B01 /* MediaPipe.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -44,7 +44,7 @@
 		C7E6191E278EC75E0064C8C9 /* FaceMeshTest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FaceMeshTest-Bridging-Header.h"; sourceTree = "<group>"; };
 		C7E6191F278EC75F0064C8C9 /* FaceMeshingOCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FaceMeshingOCViewController.h; sourceTree = "<group>"; };
 		C7E61920278EC75F0064C8C9 /* FaceMeshingOCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FaceMeshingOCViewController.m; sourceTree = "<group>"; };
-		C7E61927278EC8040064C8C9 /* FaceMeshing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FaceMeshing.framework; path = FaceMeshTest/FaceMeshing.framework; sourceTree = "<group>"; };
+		C7F30100279014BB00317B01 /* MediaPipe.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPipe.framework; path = FaceMeshTest/MediaPipe.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7E61928278EC8040064C8C9 /* FaceMeshing.framework in Frameworks */,
+				C7F30101279014BB00317B01 /* MediaPipe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,7 +96,7 @@
 		C7E61922278EC78C0064C8C9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C7E61927278EC8040064C8C9 /* FaceMeshing.framework */,
+				C7F30100279014BB00317B01 /* MediaPipe.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
