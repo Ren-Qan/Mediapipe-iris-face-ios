@@ -6,7 +6,7 @@ ios_framework(
         "IrisFaceMeshingHelper.h",
     ],
     infoplists = ["Info.plist"],
-    bundle_id = "woyaolianbeta",
+    bundle_id = "xxxxxxxxxx",
     families = ["iphone", "ipad"],
     minimum_os_version = "11.0",
     deps = [
