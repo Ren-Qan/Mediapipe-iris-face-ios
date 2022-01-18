@@ -70,7 +70,6 @@
     });
 }
 
-
 + (UIImage *)convert:(CVPixelBufferRef)pixelBuffer {
     CIImage *ciImage = [CIImage imageWithCVPixelBuffer:pixelBuffer];
     if (!ciImage) {
