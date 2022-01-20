@@ -27,8 +27,15 @@ class ViewController: UIViewController {
         ocBtn.frame = CGRect(x: 100, y: 100, width: 50, height: 50)
         ocBtn.setTitleColor(.black, for: .normal)
         
+        let apiExampleBtn = UIButton()
+        apiExampleBtn.setTitle("api_example", for: .normal)
+        apiExampleBtn.addTarget(self, action: #selector(apiExampleTest), for: .touchUpInside)
+        apiExampleBtn.frame = CGRect(x: 180, y: 100, width: 150, height: 50)
+        apiExampleBtn.setTitleColor(.black, for: .normal)
+        
         view.addSubview(sBtn)
         view.addSubview(ocBtn)
+        view.addSubview(apiExampleBtn)
     }
 
     @objc
@@ -41,6 +48,12 @@ class ViewController: UIViewController {
     @objc
     private func ocTest() {
         let vc = FaceMeshingOCViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc
+    private func apiExampleTest() {
+        let vc = APIViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
 }

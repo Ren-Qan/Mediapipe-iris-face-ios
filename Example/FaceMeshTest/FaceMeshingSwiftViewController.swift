@@ -8,16 +8,16 @@
 import UIKit
 
 class FaceMeshingSwiftViewController: UIViewController {
-    private let KW = UIScreen.main.bounds.size.width;
-    private let KH = UIScreen.main.bounds.size.height;
+    let KW = UIScreen.main.bounds.size.width;
+    let KH = UIScreen.main.bounds.size.height;
         
-    private lazy var helper: IrisFaceMeshingHelper = {
+    lazy var helper: IrisFaceMeshingHelper = {
         let helper = IrisFaceMeshingHelper()
         helper.delegate = self
         return helper
     }()
     
-    private lazy var startButton: UIButton = {
+    lazy var startButton: UIButton = {
         let btn = UIButton()
         btn.frame = CGRect(x: 20, y: 100, width: 40, height: 40)
         btn.backgroundColor = .black
@@ -27,7 +27,7 @@ class FaceMeshingSwiftViewController: UIViewController {
         return btn
     }()
     
-    private lazy var originalImageView: UIImageView = {
+    lazy var originalImageView: UIImageView = {
         let view = UIImageView()
         let w = KW * 0.5 - 25
         view.frame = CGRect(x: 20, y: 160, width: w, height: KH * w / KW)
@@ -36,7 +36,7 @@ class FaceMeshingSwiftViewController: UIViewController {
         return view
     }()
     
-    private lazy var medipipeImageView: UIImageView = {
+    lazy var medipipeImageView: UIImageView = {
         let view = UIImageView()
         let w = KW * 0.5 - 25
         view.frame = CGRect(x: 5 + KW * 0.5, y: 160, width: w, height: KH * w / KW)
