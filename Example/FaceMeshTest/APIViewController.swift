@@ -92,7 +92,7 @@ class APIViewController: FaceMeshingSwiftViewController {
         }
     }
     
-    func didReceiveFeceDecetionScore(_ score: NSNumber?) {
+    func didReceiveFeceDetectionScore(_ score: NSNumber?) {
         guard let score = score?.floatValue else {
             return
         }

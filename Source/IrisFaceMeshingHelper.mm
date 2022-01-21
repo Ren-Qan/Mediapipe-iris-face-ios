@@ -235,6 +235,7 @@ static const char *KFaceDetectionStream = "face_detections";
         if (![self.delegate respondsToSelector:@selector(didReceiveIrisLandMarks:)]) {
             return;
         }
+    
         [self.delegate didReceiveIrisLandMarks:[self mapLandMarksWithPacket:packet]];
     }
     
@@ -267,10 +268,10 @@ static const char *KFaceDetectionStream = "face_detections";
     }
     
     if (streamName == KFaceDetectionStream) {
-        if (![self.delegate respondsToSelector:@selector(didReceiveFeceDecetionScore:)]) {
+        if (![self.delegate respondsToSelector:@selector(didReceiveFeceDetectionScore:)]) {
             return;
         }
-        [self.delegate didReceiveFeceDecetionScore:[self mapScoreWithPacket:packet]];
+        [self.delegate didReceiveFeceDetectionScore:[self mapScoreWithPacket:packet]];
     }
 }
 
@@ -353,9 +354,9 @@ static const char *KFaceDetectionStream = "face_detections";
 }
 
 - (NSNumber *)mapScoreWithPacket:(const ::mediapipe::Packet&)packet {
-    const auto& decetions = packet.Get<std::vector<mediapipe::Detection>>();
-    for (int i = 0; i < decetions.size(); i++) {
-        float scroe = decetions[i].score(0);
+    const auto& detections = packet.Get<std::vector<mediapipe::Detection>>();
+    for (int i = 0; i < detections.size(); i++) {
+        float scroe = detections[i].score(0);
         return [[NSNumber alloc] initWithFloat:scroe];
     }
     return NULL;

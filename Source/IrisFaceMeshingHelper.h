@@ -1,6 +1,6 @@
 //
 //  IrisFaceMeshingHelper.h
-//  _idx_FaceEffectAppLibrary_CommonMediaPipeAppLibrary_4073E6E4_ios_min10.0
+//  _idx_FaceEffectAppLibrary_CommonMediaPipeAppLibrary_4073E6E4_ios_min11.0
 //
 //  Created by 任玉乾 on 2022/1/7.
 //
@@ -51,7 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 人脸检测的分数 0-100 不是一直返回，当需要检测的时候才会返回分数（建议调试使用）
 /// @param score float
-- (void)didReceiveFeceDecetionScore:(nullable NSNumber *)score;
+- (void)didReceiveFeceDetectionScore:(nullable NSNumber *)score;
 
 /// 相机采集到的数据
 /// @param pixelBuffer CVPixelBufferRef
